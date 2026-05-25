@@ -9,8 +9,15 @@ if (process.env.PORT) {
   port = 3000;
 }
 
+let counter = 0;
+
 app.get("/", (_request, response) => {
-  response.send({ hello: "World" });
+  response.send({ hello: "World", counter: counter });
+});
+
+app.post("/:nr", (request, response) => {
+  counter += request.params.nr;
+  response.send({ status: true });
 });
 
 app.listen(port, () => {
