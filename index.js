@@ -16,7 +16,7 @@ app.get("/", (_request, response) => {
 });
 
 app.post("/:nr", (request, response) => {
-  counter += request.params.nr;
+  counter += Number(request.params.nr);
   response.send({ status: true });
 });
 
